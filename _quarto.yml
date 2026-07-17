@@ -13,8 +13,14 @@ website:
         text: Talks
       - href: lessons.qmd
         text: Lessons
-      - href: softwares.qmd
-        text: Softwares
+      - text: Softwares
+        menu:
+          - href: softwares.qmd
+            text: Overview
+          - href: softwares.html?app=prescription
+            text: Prescription generator
+          - href: softwares.html?app=load-velocity
+            text: Load-velocity model
       - href: about.qmd
         text: About
 

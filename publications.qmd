@@ -1,11 +1,113 @@
 ---
-title: "Publications"
+title: "Research"
 ---
 
-Here you will find all the publications I participated in.
+::: {#publications-app}
+<p>Loading publications…</p>
+:::
 
-| Title | Journal | File | Publication |
-|---------|---------|:---:|:---:|
-| The role of machine learning methods in physiological explorations of endurance trained athletes: a mini-review | [Frontiers in Sports and Active Living](https://www.frontiersin.org/journals/sports-and-active-living) | [link](./content/Publications/fspor-06-1440652.pdf) | [link](https://doi.org/10.3389/fspor.2024.1440652) |
-| Specific impact of a COVID-19 infection on training modalities of endurance sportsmen: an observational approach | [Movement & Sport Sciences - Science & Motricité](https://www.mov-sport-sciences.org/) | *NA* | [link](https://doi.org/10.1051/sm/2024030) |
-| Metabolomics Signatures of a Respiratory Tract Infection During an Altitude Training Camp in Elite Rowers | [Metabolites](https://www.mdpi.com/journal/metabolites) | [link](./content/Publications/metabolites-15-00408.pdf) | [link](https://www.mdpi.com/2218-1989/15/6/408) |
+<script>
+const AUTHOR_ID = "2333978217";
+const MY_NAME = "F\u00e9lix Boudry"; // must match the name in Semantic Scholar author lists
+
+function escapeHtml(s) {
+  const div = document.createElement("div");
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function readableList(names) {
+  if (names.length < 3) return names.join(" and ");
+  const last = names[names.length - 1];
+  const rest = names.slice(0, -1);
+  return `${rest.join(", ")}, and ${last}`;
+}
+
+function button(url, text, iconClass) {
+  if (!url) return "";
+  const icon = iconClass ? `<i class="${iconClass}"></i> ` : "";
+  return (
+    `<a href="${escapeHtml(url)}" class="btn btn-sm btn-outline-primary me-2" ` +
+    `target="_blank" rel="noopener noreferrer">${icon}${escapeHtml(text)}</a>`
+  );
+}
+
+function paperToEntry(paper) {
+  const authors = (paper.authors || []).map((a) =>
+    a.name && a.name.includes("Boudry") ? "<strong>Félix Boudry</strong>" : a.name
+  );
+  const authorStr = readableList(authors.length ? authors : ["me"]);
+  const yearStr = String(paper.year || "n.d.");
+  const title = paper.title || "Untitled";
+  const venue = paper.venue;
+  const externalIds = paper.externalIds || {};
+
+  const buttons = [];
+  if (externalIds.ArXiv) {
+    buttons.push(button(`https://arxiv.org/abs/${externalIds.ArXiv}`, "Preprint", "bi-file-earmark-pdf"));
+  }
+  const openAccessUrl = paper.openAccessPdf && paper.openAccessPdf.url;
+  if (openAccessUrl) {
+    buttons.push(button(openAccessUrl, "PDF", "bi-file-earmark-pdf"));
+  }
+
+  let pubStr = `${authorStr}. (${yearStr}) "${escapeHtml(title)}."`;
+  if (venue) pubStr += ` <em>${escapeHtml(venue)}</em>`;
+
+  const pubUrl = externalIds.DOI ? `https://doi.org/${externalIds.DOI}` : null;
+  const isWorkingPaper = !pubUrl;
+
+  if (!isWorkingPaper) {
+    buttons.push(button(pubUrl, "Published", "ai-archive"));
+  }
+
+  return {
+    year: yearStr,
+    isWorkingPaper,
+    html: `<li class="list-group-item">${pubStr}<br>${buttons.join(" ")}</li>`,
+  };
+}
+
+async function fetchPapers() {
+  const fields = "paperId,title,authors,year,venue,publicationDate,externalIds,openAccessPdf,url";
+  const url = `https://api.semanticscholar.org/graph/v1/author/${AUTHOR_ID}/papers?fields=${fields}&limit=1000`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Semantic Scholar API error: ${res.status}`);
+  const data = await res.json();
+  return data.data || [];
+}
+
+function renderSection(title, entriesByYear) {
+  const years = Object.keys(entriesByYear).sort((a, b) => b.localeCompare(a));
+  if (years.length === 0) return "";
+  let html = `<h2>${title}</h2>`;
+  for (const year of years) {
+    html += `<h3 id="${title.toLowerCase().replace(/\s+/g, "-")}-${year}">${year}</h3>`;
+    html += `<ul class="list-group list-group-flush">${entriesByYear[year].join("\n")}</ul>`;
+  }
+  return html;
+}
+
+(async function main() {
+  const container = document.getElementById("publications-app");
+  try {
+    const papers = await fetchPapers();
+    const pubs = {};
+    const wps = {};
+
+    for (const paper of papers) {
+      const entry = paperToEntry(paper);
+      const bucket = entry.isWorkingPaper ? wps : pubs;
+      if (!bucket[entry.year]) bucket[entry.year] = [];
+      bucket[entry.year].push(entry.html);
+    }
+
+    container.innerHTML =
+      renderSection("Published", pubs) +
+      renderSection("Working Papers / Non-archival", wps);
+  } catch (err) {
+    container.innerHTML = `<p class="text-danger">Failed to load publications: ${escapeHtml(err.message)}</p>`;
+    console.error(err);
+  }
+})();
+</script>
