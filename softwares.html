@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Softwares – Boudry Felix</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,12 +39,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0c23511428beaf87b29bbdf0654d5814.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c98d9d0b3b0a085d3ddf71e6e91476d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d03312063cfab2e1753bdcbb830eb4d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -266,10 +269,25 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./lessons.html"> 
 <span class="menu-text">Lessons</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./softwares.html" aria-current="page"> 
-<span class="menu-text">Softwares</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-softwares" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Softwares</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-softwares">    
+        <li>
+    <a class="dropdown-item" href="./softwares.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./softwares.html?app=prescription">
+ <span class="dropdown-text">Prescription generator</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./softwares.html?app=load-velocity">
+ <span class="dropdown-text">Load-velocity model</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -312,11 +330,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here are some softwares I created.</p>
-<ul>
-<li><a href="https://cr8mnj-felix-boudry.shinyapps.io/prescription_generator/">Prescrition generator</a></li>
-<li><a href="https://cr8mnj-felix-boudry.shinyapps.io/load_velocity_model/">Load-velocity model</a></li>
-</ul>
+<p>Select an app from the <strong>Softwares</strong> menu in the navbar, or choose one below, to launch it directly on this page.</p>
+<div class="mb-3">
+<p><select id="app-select" class="form-select" style="max-width: 400px;"> <option value="">— Select an app —</option> <option value="prescription">Prescription generator</option> <option value="load-velocity">Load-velocity model</option> </select></p>
+</div>
+<div id="app-container">
+
+</div>
+<script>
+const APPS = {
+  prescription: {
+    title: "Prescription generator",
+    url: "https://cr8mnj-felix-boudry.shinyapps.io/prescription_generator/",
+  },
+  "load-velocity": {
+    title: "Load-velocity model",
+    url: "https://cr8mnj-felix-boudry.shinyapps.io/load-velocity_model/",
+  },
+};
+
+function renderApp(key) {
+  const container = document.getElementById("app-container");
+  const select = document.getElementById("app-select");
+  const app = APPS[key];
+
+  if (!app) {
+    container.innerHTML = "";
+    if (select) select.value = "";
+    return;
+  }
+
+  if (select) select.value = key;
+
+  container.innerHTML = `
+    <h2>${app.title}</h2>
+    <div class="ratio ratio-16x9" style="--bs-aspect-ratio: 66.6667%;">
+      <iframe src="${app.url}" allowfullscreen loading="lazy"
+        style="border: 1px solid var(--bs-border-color); border-radius: 0.375rem;"></iframe>
+    </div>
+    <p class="mt-2">
+      <a href="${app.url}" target="_blank" rel="noopener noreferrer">Open in a new tab</a>
+    </p>
+  `;
+}
+
+document.getElementById("app-select").addEventListener("change", (e) => {
+  const key = e.target.value;
+  const url = new URL(window.location);
+  if (key) {
+    url.searchParams.set("app", key);
+  } else {
+    url.searchParams.delete("app");
+  }
+  window.history.replaceState({}, "", url);
+  renderApp(key);
+});
+
+const initialKey = new URLSearchParams(window.location.search).get("app");
+if (initialKey) renderApp(initialKey);
+</script>
 
 
 
@@ -385,13 +457,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -406,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Boudry-Felix\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/fboudry\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -4,28 +4,14 @@
     "href": "index.html",
     "title": "Boudry Felix",
     "section": "",
-    "text": "Hi there! I’m Félix, a passionate developer, researcher, and lifelong learner who loves creating, building, and solving interesting challenges.\n\n🔭 Currently working on my thesis.\n🌱 Learning: R and data analysis.\n🎯 Goal: To finish my thesis and publish usefull tools for sport scientists."
-  },
-  {
-    "objectID": "index.html#languages",
-    "href": "index.html#languages",
-    "title": "Boudry Felix",
-    "section": "Languages",
-    "text": "Languages"
-  },
-  {
-    "objectID": "index.html#tools-frameworks",
-    "href": "index.html#tools-frameworks",
-    "title": "Boudry Felix",
-    "section": "Tools & frameworks",
-    "text": "Tools & frameworks"
+    "text": "👋 About Me\nHi there! I’m Félix, a passionate researcher, developer, and lifelong learner who loves creating, building, and solving interesting challenges.\n\n\n🚀 What I’m up to\n\n🧑‍🔬 Researcher in Sport Sciences and Physiology, focusing on metabolomics.\n💻 Building tools to simplify decision making.\n📊 Contributing to open-source projects related to data visualization and machine learning.\n\n\n\n\n🛠️ My Toolkit\n\n  \n  \n\n\n\n  \n  \n  \n\n\n\n📊 GitHub Stats\n\n  \n\n\n\n📫 Get in touch"
   },
   {
     "objectID": "publications.html",
     "href": "publications.html",
-    "title": "Publications",
+    "title": "Research",
     "section": "",
-    "text": "Here you will find all the publications I participated in.\n\n\n\nTitle\nJournal\nFile\nPublication\n\n\n\n\nThe role of machine learning methods in physiological explorations of endurance trained athletes: a mini-review\nFrontiers in Sports and Active Living\nlink\nlink\n\n\nSpecific impact of a COVID-19 infection on training modalities of endurance sportsmen: an observational approach\nMovement & Sport Sciences - Science & Motricité\nNA\nlink\n\n\nMetabolomics Signatures of a Respiratory Tract Infection During an Altitude Training Camp in Elite Rowers\nMetabolites\nlink\nlink"
+    "text": "Loading publications…"
   },
   {
     "objectID": "talks.html",
@@ -33,13 +19,6 @@
     "title": "Talks",
     "section": "",
     "text": "Here you will find all talks, presentations, poster, etc. I gave.\n\n\n\nTitle\nCongress\nFile\nPublication\n\n\n\n\nExercise Induced Hypoxaemia (EIH) modeling\nEuropean College of Sport Science (ECSS) 2023\nlink\nNA\n\n\nSpecific impact of a COVID-19 infection on training modalities of endurance trained athletes\nEuropean College of Sport Science (ECSS) 2023\nlink\nNA\n\n\nL’intelligence artificielle pour la performance: de l’entraînement aux Jeux Olympiques\nFête de la science 2023\nlink\nNA\n\n\nDétection de pathologies respiratoires chez les sportifs de haut niveau durant un camp d’entraînement en hypoxie\nRéseau Francophone de Métabolomique et Fluxomique (RFMF) 2024\nlink\nNA"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is my personnal website. It contains informations about my publications, lectures, conference presentations, posters, teaching contents, etc."
   },
   {
     "objectID": "lessons.html",
@@ -53,6 +32,13 @@
     "href": "softwares.html",
     "title": "Softwares",
     "section": "",
-    "text": "Here are some softwares I created.\n\nPrescrition generator\nLoad-velocity model"
+    "text": "Select an app from the Softwares menu in the navbar, or choose one below, to launch it directly on this page.\n\n — Select an app — Prescription generator Load-velocity model"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is my personnal website. It contains informations about my publications, lectures, conference presentations, posters, teaching contents, etc."
   }
 ]

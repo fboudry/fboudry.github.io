@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Boudry Felix</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,12 +39,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0c23511428beaf87b29bbdf0654d5814.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c98d9d0b3b0a085d3ddf71e6e91476d8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d03312063cfab2e1753bdcbb830eb4d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -266,10 +269,25 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./lessons.html"> 
 <span class="menu-text">Lessons</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./softwares.html"> 
-<span class="menu-text">Softwares</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-softwares" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Softwares</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-softwares">    
+        <li>
+    <a class="dropdown-item" href="./softwares.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./softwares.html?app=prescription">
+ <span class="dropdown-text">Prescription generator</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./softwares.html?app=load-velocity">
+ <span class="dropdown-text">Load-velocity model</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -292,14 +310,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">👋 About Me</a></li>
-  <li><a href="#my-toolkit" id="toc-my-toolkit" class="nav-link" data-scroll-target="#my-toolkit">🛠️ My Toolkit</a>
-  <ul class="collapse">
-  <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages"><strong>Languages</strong></a></li>
-  <li><a href="#tools-frameworks" id="toc-tools-frameworks" class="nav-link" data-scroll-target="#tools-frameworks"><strong>Tools &amp; frameworks</strong></a></li>
-  </ul></li>
   <li><a href="#what-im-up-to" id="toc-what-im-up-to" class="nav-link" data-scroll-target="#what-im-up-to">🚀 What I’m up to</a></li>
+  <li><a href="#my-toolkit" id="toc-my-toolkit" class="nav-link" data-scroll-target="#my-toolkit">🛠️ My Toolkit</a></li>
   <li><a href="#github-stats" id="toc-github-stats" class="nav-link" data-scroll-target="#github-stats">📊 GitHub Stats</a></li>
-  <li><a href="#metrics-activity" id="toc-metrics-activity" class="nav-link" data-scroll-target="#metrics-activity">📈 Metrics &amp; Activity</a></li>
   <li><a href="#get-in-touch" id="toc-get-in-touch" class="nav-link" data-scroll-target="#get-in-touch">📫 Get in touch</a></li>
   </ul>
 </nav>
@@ -329,31 +342,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about-me" class="level1">
 <h1>👋 About Me</h1>
-<p>Hi there! I’m <strong>Félix</strong>, a passionate developer, researcher, and lifelong learner who loves creating, building, and solving interesting challenges.</p>
-<ul>
-<li>🔭 Currently working on <strong>my thesis</strong>.</li>
-<li>🌱 Learning: <strong>R and data analysis</strong>.</li>
-<li>🎯 Goal: To <strong>finish my thesis and publish usefull tools for sport scientists</strong>.</li>
-</ul>
-<hr>
-</section>
-<section id="my-toolkit" class="level1">
-<h1>🛠️ My Toolkit</h1>
-<section id="languages" class="level2">
-<h2 class="anchored" data-anchor-id="languages"><strong>Languages</strong></h2>
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&amp;logoColor=white&amp;style=for-the-badge" alt="Python">
-  <img src="https://img.shields.io/badge/-R-276DC3?logo=r&amp;logoColor=white&amp;style=for-the-badge" alt="R">
-</div>
-</section>
-<section id="tools-frameworks" class="level2">
-<h2 class="anchored" data-anchor-id="tools-frameworks"><strong>Tools &amp; frameworks</strong></h2>
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://img.shields.io/badge/-Git-F05032?logo=git&amp;logoColor=white&amp;style=for-the-badge" alt="Git">
-  <img src="https://img.shields.io/badge/-RStudio-75AADB?logo=rstudio&amp;logoColor=white&amp;style=for-the-badge" alt="RStudio">
-  <img src="https://img.shields.io/badge/-Jupyter-F37626?logo=jupyter&amp;logoColor=white&amp;style=for-the-badge" alt="Jupyter">
-</div>
-</section>
+<p>Hi there! I’m <strong>Félix</strong>, a passionate researcher, developer, and lifelong learner who loves creating, building, and solving interesting challenges.</p>
 </section>
 <section id="what-im-up-to" class="level1">
 <h1>🚀 What I’m up to</h1>
@@ -362,21 +351,25 @@ ul.task-list li input[type="checkbox"] {
 <li>💻 Building tools to simplify decision making.</li>
 <li>📊 Contributing to open-source projects related to data visualization and machine learning.</li>
 </ul>
+<hr>
+</section>
+<section id="my-toolkit" class="level1">
+<h1>🛠️ My Toolkit</h1>
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+  <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&amp;logoColor=white&amp;style=for-the-badge" alt="Python">
+  <img src="https://img.shields.io/badge/-R-276DC3?logo=r&amp;logoColor=white&amp;style=for-the-badge" alt="R">
+</div>
+<br>
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+  <img src="https://img.shields.io/badge/-Git-F05032?logo=git&amp;logoColor=white&amp;style=for-the-badge" alt="Git">
+  <img src="https://img.shields.io/badge/-RStudio-75AADB?logo=rstudio&amp;logoColor=white&amp;style=for-the-badge" alt="RStudio">
+  <img src="https://img.shields.io/badge/-Jupyter-F37626?logo=jupyter&amp;logoColor=white&amp;style=for-the-badge" alt="Jupyter">
+</div>
 </section>
 <section id="github-stats" class="level1">
 <h1>📊 GitHub Stats</h1>
 <div style="text-align: center;">
- <img src="https://github-readme-stats.vercel.app/api?username=fboudry&amp;show_icons=true&amp;theme=radical" alt="GitHub Stats">
-  <br>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=fboudry&amp;theme=radical" alt="GitHub Streak">
-</div>
-</section>
-<section id="metrics-activity" class="level1">
-<h1>📈 Metrics &amp; Activity</h1>
-<div style="text-align: center;">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=fboudry&amp;theme=radical" alt="GitHub Profile Summary">
-  <br>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=fboudry&amp;theme=radical" alt="Most Commit Language">
 </div>
 </section>
 <section id="get-in-touch" class="level1">
@@ -455,13 +448,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -476,7 +470,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Boudry-Felix\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/fboudry\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
